@@ -42,6 +42,8 @@ resource "aws_instance" "my-EC2" {
   user_data = <<EOF
 #!/bin/bash
 cd /opt
+sudo yum update -y
+sudo amazon-linux-extras install java-openjdk11 -y
 wget  https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.69/bin/apache-tomcat-9.0.69.tar.gz
 tar -xvzf /opt/apache-tomcat-9.0.69.tar.gz
 mv apache-tomcat-9.0.69 tomcat9
