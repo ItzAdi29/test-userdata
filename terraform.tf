@@ -45,6 +45,7 @@ cd /opt
 wget  https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.69/bin/apache-tomcat-9.0.69.tar.gz
 tar -xvzf /opt/apache-tomcat-9.0.69.tar.gz
 mv apache-tomcat-9.0.69 tomcat9
+sudo chown -R ec2-user:ec2-user /opt/tomcat9
 chmod +x /opt/tomcat9/bin/startup.sh 
 chmod +x /opt/tomcat9/bin/shutdown.sh
 ln -s /opt/tomcat9/bin/startup.sh /usr/local/bin/tomcatup
@@ -54,6 +55,6 @@ tomcatup
 EOF
 
   tags = {
-    Name = "Test-EC2"
+    Name = "x21201188-Test-EC2"
   }
 }
