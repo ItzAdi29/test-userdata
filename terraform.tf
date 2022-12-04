@@ -2,7 +2,7 @@ provider "aws" {
   region = "eu-west-1"
 }
 
-resource "aws_security_group" "private-sg" {
+resource "aws_security_group" "tomcat-sg" {
   name = "x21201188-my-SG"
   description = "HTTP and SSH traffic"
 
@@ -36,7 +36,7 @@ resource "aws_instance" "my-EC2" {
   associate_public_ip_address = true
   root_block_device {
     volume_type = "gp2"
-    volume_size = "8"
+    volume_size = "30"
     delete_on_termination = true
   }
   user_data = <<EOF
@@ -57,6 +57,6 @@ tomcatup
 EOF
 
   tags = {
-    Name = "x21201188-Test-EC2"
+    Name = "x21201188-tomcat-deploy"
   }
 }
